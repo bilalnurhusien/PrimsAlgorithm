@@ -6,8 +6,7 @@ Prim's Algorithm
     This program is free software.
     
     Description:
-    Prim's minimum spanning tree algorithm was used to compute the overall cost
-    of a minimum spanning tree.
+    Prim's algorithm was used to compute the overall cost of a minimum spanning tree.
     
     Input File:
     The input file contains an adjacency list representation of an undirected
