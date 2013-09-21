@@ -3,7 +3,7 @@
  *
  *  Created on: 2013-09-13
  *  Author: Bilal Nurhusien
- *  Copyright 2013 © Bilal Nurhusien
+ *  Copyright 2013 ï¿½ Bilal Nurhusien
  *  This program is free software.
  *
  *  Description:
@@ -72,8 +72,8 @@ struct Comp
  */
 
 int readfile(vector<vertex*>& Heap) {
-	const char* inputfile = "./PrimData.txt";
-	std::string line;
+    const char* inputfile = "./PrimData.txt";
+    std::string line;
     std::ifstream infile;
     infile.open(inputfile);
     if(infile.fail())
@@ -87,43 +87,42 @@ int readfile(vector<vertex*>& Heap) {
 	unsigned int size;
 	iss >> size;
 	Heap.resize(size);
-	iss >> size; 									// Ignore the number of edges
+	iss >> size; 				       // Ignore the number of edges
 
     while (std::getline(infile, line)) {
-		std::istringstream iss(line);
-		unsigned int a, b, c;
-		iss >> a;
-		vertex* n0;
-
-		// If the vertex hasn't been created, create it (note: array is zero indexed, so subtract index by one)
-		if (Heap[a-1] == NULL) {
-			n0 = Heap[a-1] = new vertex(a);
-		}
-		else {
-			n0 = Heap[a-1];
-		}
-
-		iss>> b;                       // Read second vertex id
-		iss >> c;                      // Read edge weight
-
-		Edge edge;
-		Edge edge2;
-
-		// If the vertex hasn't been created, create it (note: array is zero indexed, so subtract index by one)
-		if (Heap[b-1] == NULL) {
-			edge.neighbour = Heap[b-1] = new vertex(b);
-		}
-		else {
-			edge.neighbour = Heap[b-1];
-		}
-
-		edge.weight = c;
-		n0->neighbours.push_back(edge);
-
-		edge2.weight = c;
-		edge2.neighbour = n0;
-		Heap[b-1]->neighbours.push_back(edge2);
-
+	std::istringstream iss(line);
+	unsigned int a, b, c;
+	iss >> a;
+	vertex* n0;
+	
+	// If the vertex hasn't been created, create it (note: array is zero indexed, so subtract index by one)
+	if (Heap[a-1] == NULL) {
+		n0 = Heap[a-1] = new vertex(a);
+	}
+	else {
+		n0 = Heap[a-1];
+	}
+	
+	iss>> b;                       // Read second vertex id
+	iss >> c;                      // Read edge weight
+	
+	Edge edge;
+	Edge edge2;
+	
+	// If the vertex hasn't been created, create it (note: array is zero indexed, so subtract index by one)
+	if (Heap[b-1] == NULL) {
+		edge.neighbour = Heap[b-1] = new vertex(b);
+	}
+	else {
+		edge.neighbour = Heap[b-1];
+	}
+	
+	edge.weight = c;
+	n0->neighbours.push_back(edge);
+	
+	edge2.weight = c;
+	edge2.neighbour = n0;
+	Heap[b-1]->neighbours.push_back(edge2);
     }
     return 0;
 }
@@ -193,7 +192,7 @@ int main()
 
 	// Run Prim's algorithm
 	while (Heap.size() != 0)
-		Prim(Heap,Explored);
+		Prim(Heap, Explored);
 
 	// Print the overall cost of a minimum spanning tree
 	cout << MinSpanCost << endl;
