@@ -1,4 +1,4 @@
-PrimsAlgorithm
+Prims Algorithm
 ==============
 
     Author: Bilal Nurhusien
